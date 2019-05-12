@@ -28,12 +28,12 @@ const App: React.FC = () => {
           ]}
         />
       </div>
-      <div className="ms-Grid" style={{height: "90%"}}>
+      <div className="ms-Grid" style={{height: "100%", paddingBottom: "32px"}}>
         <div className="ms-Grid-row" style={{height: "100%"}}>
-          <div className="ms-Grid-col ms-sm6" style={{height:"100%", paddingTop: "8px", paddingBottom: "16px", paddingRight: "10px", paddingLeft: "16px"}}>
+          <div className="ms-Grid-col ms-sm5" style={{height:"100%", paddingTop: "8px", paddingBottom: "16px", paddingRight: "10px", paddingLeft: "16px"}}>
             <ChaincodeDetails/>
           </div>
-          <div className="ms-Grid-col ms-sm6" style={{height:"100%", paddingTop: "8px", paddingBottom: "16px", paddingRight: "16px", paddingLeft: "10px"}}>
+          <div className="ms-Grid-col ms-sm7" style={{height:"100%", paddingTop: "8px", paddingBottom: "16px", paddingRight: "16px", paddingLeft: "10px"}}>
             <ChaincodeSignatures/>
           </div>
         </div>
@@ -81,9 +81,10 @@ const DetailsLine = (props: {label: string; value?: string; children?: string; i
 const CertificateCard = (props: any) => {
   return (
     <div className="ms-Grid" style={{boxShadow: Depths.depth4, marginLeft: "32px", marginRight: "32px"}}>
-      <DetailsLine label="Subject">Subject</DetailsLine>
-      <DetailsLine label="Issuer">Issuer</DetailsLine>
-      <DetailsLine label="Validity" iconName="CheckMark">Date</DetailsLine>
+      <DetailsLine label="Subject" iconName="ReminderPerson">Subject</DetailsLine>
+      <DetailsLine label="Issuer" iconName="PartyLeader">Issuer</DetailsLine>
+      <DetailsLine label="Validity" iconName="Calendar">Date</DetailsLine>
+      <DetailsLine label="Public Key" iconName="Script">Base64 Public Key</DetailsLine>
     </div>
   );
 }
@@ -91,29 +92,29 @@ const CertificateCard = (props: any) => {
 const SignatureCard = (props: any) => {
   return (
     <div className="ms-Grid" style={{boxShadow: Depths.depth8, margin: "32px"}}>
-      <DetailsLine label="Signature value" iconName="CheckMark">BASE64VALUE</DetailsLine>
-      <DetailsLine label="Certificate" value=" "></DetailsLine>
+      <DetailsLine label="Certificate" iconName="Certificate" value=" "></DetailsLine>
       <CertificateCard/>
-      <DetailsLine label="MSP">DLTLabMSP</DetailsLine>
+      <DetailsLine label="MSP" iconName="SecurityGroup">DLTLabMSP</DetailsLine>
+      <DetailsLine label="Signature value" iconName="CheckMark">BASE64VALUE</DetailsLine>
     </div>
   );
 }
 
 const ChaincodeDetails = () => {
   return (
-    <TopLevelCard iconName="Info" title="Chaincode Details">
-      <DetailsLine label="Name">prenda</DetailsLine>
-      <DetailsLine label="Version">1.0</DetailsLine>
-      <DetailsLine label="Language">node</DetailsLine>
-      <DetailsLine label="Size">400KB</DetailsLine>
-      <DetailsLine label="Instantiation policy">AND('DLTLab.admin')</DetailsLine>
+    <TopLevelCard iconName="ExternalTFVC" title="Chaincode Details">
+      <DetailsLine label="Name" iconName="FileCode">prenda</DetailsLine>
+      <DetailsLine label="Version" iconName="OEM">1.0</DetailsLine>
+      <DetailsLine label="Language" iconName="Embed">node</DetailsLine>
+      <DetailsLine label="Size" iconName="OfflineStorageSolid">400KB</DetailsLine>
+      <DetailsLine label="Instantiation policy" iconName="ProtectionCenterLogo32">AND('DLTLab.admin')</DetailsLine>
     </TopLevelCard>
   );
 }
   
 const ChaincodeSignatures = () => {
   return (
-    <TopLevelCard iconName="Certificate" title="Signatures">
+    <TopLevelCard iconName="CertifiedDatabase" title="Signatures">
       <div style={{height: "85%", position: "relative"}}>
         <ScrollablePane>
           <List items={
