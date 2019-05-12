@@ -1,0 +1,20 @@
+html, body,
+#root, .ms-Fabric {
+    height: 100%;
+}
+
+/* Override the default Grid component so that the content is pulled out to the edge */ 
+
+.ms-Grid {
+    padding: 0px 8px;
+}
+
+/*
+.ms-Grid-row {
+    padding: 8px;
+}
+
+.ms-Grid-col {
+    padding: 0px 8px;
+}
+*/
