@@ -4,7 +4,13 @@ import * as isDev from 'electron-is-dev';
 let mainWindow: BrowserWindow | null;
 
 function createWindow() {
-    mainWindow = new BrowserWindow({ width: 1000, height: 700 });
+    mainWindow = new BrowserWindow({
+        width: 1100, height: 850,
+        icon: join(__dirname, '../build/favicon.ico'),
+        webPreferences: {
+            nodeIntegration: true
+        }
+    });
     mainWindow.loadURL(
         isDev
             ? "http://localhost:3000"
